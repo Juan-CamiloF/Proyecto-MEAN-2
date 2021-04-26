@@ -1,0 +1,45 @@
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Mayor puntaje">
+      <div class="contenedor">
+          <h2>Resultados en orden de Mayor a Menor</h2>
+          <table class="table" *ngIf="listarAsc.length">
+              <tr class="elementos" >
+                  <td>#</td>
+                  <td>Nombre</td>
+                  <td>Cantidad</td>
+                  <td>Promedio/Segundo</td>
+                  <td>Fecha</td>
+              </tr>
+              <tr class="elementos" *ngFor="let listaG of listarAsc;let indice=index">
+                  <td>{{indice+1}}</td>
+                  <td>{{listaG.idUsuario.nombre}}</td>
+                  <td>{{listaG.cantidad}}</td>
+                  <td>{{listaG.promedio}}</td>
+                  <td>{{listaG.fecha | date:'dd/mm/yyyy h:mm a': 'UTC'}}</td>
+              </tr>
+          </table>
+      </div>  
+    </mat-tab>
+    <mat-tab label="Menor Puntaje">
+      <div class="contenedor">
+          <h2>Resultados en orden de realizado</h2>
+          <table class="table" *ngIf="listarDes.length">
+              <tr class="elementos" >
+                  <td>#</td>
+                  <td>Nombre</td>
+                  <td>Cantidad</td>
+                  <td>Promedio/Segundo</td>
+                  <td>Fecha</td>
+              </tr>
+              <tr class="elementos" *ngFor="let listaG of listarDes;let indice=index">
+                  <td>{{indice+1}}</td>
+                  <td>{{listaG.idUsuario.nombre}}</td>
+                  <td>{{listaG.cantidad}}</td>
+                  <td>{{listaG.promedio}}</td>
+                  <td>{{listaG.fecha | date:'dd/mm/yyyy h:mm a': 'UTC'}}</td>
+              </tr>
+          </table>
+      </div>  
+    </mat-tab>
+  </mat-tab-group>
+  

@@ -1,0 +1,38 @@
+.contenedor{
+    width: 1100px;
+    margin: 15px auto;
+}
+h2{
+    text-align: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    border: 2px solid rgba(124, 147, 250, 0.466);
+    margin: 15px auto;
+    border-radius: 5px;
+}
+.elemento{
+    margin: 15px;
+}
+.btn{
+    width: 100px;
+    height: 30px;
+    background: none;
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+.btn:hover{
+    background: rgba(124, 147, 250, 0.466);
+    border: 1px solid rgba(124, 147, 250, 0.466);
+
+}

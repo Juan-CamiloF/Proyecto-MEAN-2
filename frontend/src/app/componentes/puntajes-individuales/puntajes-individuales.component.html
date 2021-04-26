@@ -1,0 +1,62 @@
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Fecha">
+    <div class="contenedor">
+        <h2>Resultados en orden de realizado</h2>
+        <table class="table" *ngIf="listaResultados.length">
+            <tr class="elementos" >
+                <td>#</td>
+                <td>Cantidad</td>
+                <td>Promedio/Segundo</td>
+                <td>Fecha</td>
+                <td>Borrar</td>
+            </tr>
+            <tr class="elementos" *ngFor="let lista of listaResultados;let indice=index">
+                <td>{{indice+1}}</td>
+                <td>{{lista.cantidad}}</td>
+                <td>{{lista.promedio}}</td>
+                <td>{{lista.fecha | date:'dd/mm/yyyy h:mm a': 'UTC'}}</td>
+                <td><span class="material-icons" (click)="[eliminar(lista),onload()]">delete_forever</span></td> 
+            </tr>
+            <button (click)="[eliminarTodo(listaResultados),onload()]">Borrar TODO</button>
+        </table>
+    </div> 
+  </mat-tab>
+  <mat-tab label="Mayor puntaje" >
+    <div class="contenedor">
+        <h2>Resultados en orden de Mayor a Menor</h2>
+        <table class="table" *ngIf="listaResultadosASC.length">
+            <tr class="elementos" >
+                <td>#</td>
+                <td>Cantidad</td>
+                <td>Promedio/Segundo</td>
+                <td>Fecha</td>        
+            </tr>
+            <tr class="elementos" *ngFor="let lista of listaResultadosASC;let indice=index">
+                <td>{{indice+1}}</td>
+                <td>{{lista.cantidad}}</td>
+                <td>{{lista.promedio}}</td>
+                <td>{{lista.fecha | date:'dd/mm/yyyy h:mm a': 'UTC'}}</td>
+            </tr>
+        </table>
+    </div>  
+  </mat-tab>
+  <mat-tab label="Menor Puntaje"  >
+    <div class="contenedor">
+        <h2>Resultados en orden de realizado</h2>
+        <table class="table" *ngIf="listaResultadosDES.length">
+            <tr class="elementos" >
+                <td>#</td>
+                <td>Cantidad</td>
+                <td>Promedio/Segundo</td>
+                <td>Fecha</td>
+            </tr>
+            <tr class="elementos" *ngFor="let lista of listaResultadosDES;let indice=index">
+                <td>{{indice+1}}</td>
+                <td>{{lista.cantidad}}</td>
+                <td>{{lista.promedio}}</td>
+                <td>{{lista.fecha | date:'dd/mm/yyyy h:mm a': 'UTC'}}</td>
+            </tr>
+        </table>
+    </div>  
+  </mat-tab>
+</mat-tab-group>

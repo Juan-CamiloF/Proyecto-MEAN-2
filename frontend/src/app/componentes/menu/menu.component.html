@@ -1,0 +1,40 @@
+<mat-selection-list [multiple]="false" class="nav" *ngIf="usuario.loginOn()">
+  <mat-list-option class="item" routerLink="/juego">
+    <div class="flex">
+      <h2>Jugar</h2>
+      <span class="material-icons">sports_esports</span>
+    </div>
+  </mat-list-option>
+  <mat-list-option class="item" routerLink="/puntajesIndividuales">
+    <div class="flex">
+      <h2>Puntajes Personales</h2>
+      <span class="material-icons"> public_off </span>
+    </div>
+  </mat-list-option>
+  <mat-list-option class="item" routerLink="/puntajesGlobales">
+    <div class="flex">
+      <h2>Puntajes Globales</h2>
+      <span class="material-icons"> public </span>
+    </div>
+  </mat-list-option>
+  <mat-list-option class="item" (click)="usuario.cerrarSesion()">
+    <div class="flex">
+      <h2>Cerrar Sesión</h2>
+      <span class="material-icons"> logout </span>
+    </div>
+  </mat-list-option>
+</mat-selection-list>
+<mat-selection-list [multiple]="false" class="nav" *ngIf="!usuario.loginOn()">
+  <mat-list-option class="item" routerLink="/login">
+    <div class="flex">
+      <h2>Iniciar Sesión</h2>
+      <span class="material-icons"> login </span>
+    </div>
+  </mat-list-option>
+  <mat-list-option class="item" routerLink="/registro">
+    <div class="flex">
+      <h2>Registrar</h2>
+      <span class="material-icons"> app_registration </span>
+    </div>
+  </mat-list-option>
+</mat-selection-list>

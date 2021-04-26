@@ -1,0 +1,37 @@
+<div class="contenedor">
+  <h2>Registro</h2>
+  <form class="form" [formGroup]="formulario" (ngSubmit)="registrarUsuario()">
+    <mat-form-field class="elemento">
+      <mat-label>Nombre</mat-label>
+      <input placeholder="Nombre" type="text" matInput formControlName="nombre" [ngClass]="{ 'is-invalid': enviar && f.nombre.errors }" >
+      <div *ngIf="enviar&& f.nombre.errors" class="invalid-feedback">
+        <div *ngIf="f.nombre.errors.required">Llene este campo</div>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="elemento">
+      <mat-label>Edad</mat-label>
+      <input placeholder="Edad" type="number" matInput formControlName="edad" [ngClass]="{'is-invalid': enviar && f.edad.errors}" >
+      <div *ngIf="enviar && f.edad.errors" class="invalid-feedback">
+        <div *ngIf="f.edad.errors.required">Llene este campo</div>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="elemento">
+      <mat-label>Email</mat-label>
+      <input placeholder="Correo" type="email" matInput formControlName="correo" [ngClass]="{'is-invalid': enviar && f.correo.errors}" >
+      <div *ngIf="enviar && f.correo.errors" class="invalid-feedback">
+        <div *ngIf="f.correo.errors.required">Llene este campo</div>
+        <div *ngIf="f.correo.errors.email">Ingrese un correo valido</div>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="elemento">
+      <mat-label>Contraseña</mat-label>
+      <input placeholder="Contraseña" type="password" matInput formControlName="contrasenia" [ngClass]="{'is-invalid':enviar && f.contrasenia.errors}" >
+      <div *ngIf="enviar && f.contrasenia.errors" class="invalid-feedback">
+        <div *ngIf="f.contrasenia.errors.required">Llene este campo</div>
+        <div *ngIf="f.contrasenia.errors.minlength" >La contraseña debe tener minimo 6 caracteres</div>
+      </div>
+    </mat-form-field>
+    <input class="btn" type="submit" value="Enviar">
+  </form>
+  <span id="spanRegistro"></span>
+</div>
