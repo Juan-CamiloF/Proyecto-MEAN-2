@@ -24,5 +24,5 @@ esquemaUsuario.methods.generateJWT = function () {
 };
 
 //Crear los exports
-const Usuario = mongoose.model("usuario",esquemaUsuario);
+const Usuario = mongoose.model("usuario", esquemaUsuario);
 module.exports.Usuario = Usuario;
