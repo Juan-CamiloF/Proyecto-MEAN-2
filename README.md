@@ -1,17 +1,26 @@
-# Proyecto-MEAN-2
-Aplicación con tecnologias MEAN
-Esta aplicación web permite al usuario registrarse, iniciar sesión <br>
-y apartir del usuario poder hacer un test de velocidad de cliqueo <br>
-y comparar los promedios con los de otros jugadores. <br>
+# Proyecto-2
+Tecnologias usadas MEAN:
+-  MongoDB
+-  Express
+-  Angular
+-  Nodejs
 
-Para la carpeta Backend se tiene que hacer un npm i en cmd <br>
-para instalar cualquier paquete que le haga falta al proyecto<br>
-seguido de esto para desplegarlo se hace un node index.js, la <br>
-consola indicara si se ejecuto la aplicación.<br>
-<br>
-Para la carpeta Fronted se tiene que hacer los mismo que en backend <br>
-(solo npm i) y ng serve en cmd para ejecutar el angular lo cual lo hara en el puerto 4200.<br>
-<br>
-Tener en cuenta que le mongo debe estar funcionando para que el backend <br>
-despliegue de manera adecuada, la consola indicara si la base de datos <br>
-esta funcionando.
+---
+## Aplicación
+Este proyecto tiene como objetivo hacer un test de velocidad de cliqueo en el cual los usuarios pueden hacer sus tests y quedaran registrados en la aplicación además de que podran ver los test de los otros usuarios en puntajes globales, teniendo en cuenta que el usuario tiene que registrarse y iniciar sesión.
+## Tener en cuenta
+La base de datos debe estar en ejecución, si tiene variables de entorno configuradas entonces en **CMD**.
+```bash
+mongod
+```
+Si no es de esta manera, ejecutar mongod.exe en la carpeta bin de MongoDB.
+
+---
+Tanto el Backend con el Frontend no cuentan con carpeta *node_modules* así que en cada carpeta por medio de **CMD** ejecutar:
+```bash
+npm install
+```
+Para la instalación de las dependencias de cada carpeta.
+
+---
+Nota: Tanto el frontend como el backend cuentan con un README.md
