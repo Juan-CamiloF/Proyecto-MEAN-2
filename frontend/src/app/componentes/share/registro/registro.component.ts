@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //Importar el servicio
-import { UsuarioService } from '../../servicios/usuario.service';
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 })
 export class RegistroComponent implements OnInit {
   formulario!: FormGroup;
-  enviar = false;
-
   constructor(
     private usuario: UsuarioService,
     private router: Router,
@@ -20,27 +18,34 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       nombre: ['', Validators.required],
-      edad: ['', Validators.required],
+      edad: [
+        '',
+        [
+          Validators.pattern(/^[0-9]\d*$/),
+          Validators.max(99),
+          Validators.min(10),
+        ],
+      ],
       correo: ['', [Validators.required, Validators.email]],
       contrasenia: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
-
-  get f(){ return this.formulario.controls;}
+  get f() {
+    return this.formulario.controls;
+  }
 
   registrarUsuario() {
-    this.enviar= true
-    if(this.formulario.invalid) return;
-
-    
+    if (this.formulario.invalid) return;
     this.usuario.registrar(this.formulario.value).subscribe(
       (res) => {
-        document.getElementById('spanRegistro')!.innerText=`Registrado con Exito`;
+        document.getElementById(
+          'spanRegistro'
+        )!.innerText = `Registrado con Exito`;
         this.router.navigate(['/login']);
       },
       (err) => {
-        document.getElementById('spanRegistro')!.innerText=`${err.error}`;
+        document.getElementById('spanRegistro')!.innerText = `${err.error}`;
       }
     );
   }

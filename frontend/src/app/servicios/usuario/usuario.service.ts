@@ -1,20 +1,21 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router'
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { login, usuario } from 'src/app/modelos/interfaces';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class UsuarioService {
   private registrarUrl = 'http://localhost:3000/api/registro';
   private iniciarUrl = 'http://localhost:3000/api/iniciar';
   constructor(private http: HttpClient, private router:Router) {}
 
-  registrar(usuario: any) {
-    return this.http.post<any>(this.registrarUrl, usuario);
+  registrar(usuario: usuario) {
+    return this.http.post<usuario>(this.registrarUrl, usuario);
   }
-  iniciar(usuario: any) {
-    return this.http.post<any>(this.iniciarUrl, usuario);
+  iniciar(usuario: usuario) {
+    return this.http.post<login>(this.iniciarUrl, usuario);
   }
   loginOn(){
     return !!localStorage.getItem('token')

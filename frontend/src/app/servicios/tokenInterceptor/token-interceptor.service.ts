@@ -1,9 +1,7 @@
+import { HttpInterceptor } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-//Http Interceptor
-import {HttpInterceptor} from '@angular/common/http';
-//Servicio del token
-import {UsuarioService} from './usuario.service';
-import { Observable } from 'rxjs';
+import { UsuarioService } from '../usuario/usuario.service';
+
 @Injectable({
   providedIn: 'root'
 })

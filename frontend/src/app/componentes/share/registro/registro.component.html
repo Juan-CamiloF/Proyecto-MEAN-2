@@ -1,0 +1,32 @@
+<div class="contenedor">
+  <h2>Registro</h2>
+  <form class="form" [formGroup]="formulario" (ngSubmit)="registrarUsuario()">
+    <mat-form-field class="elemento">
+      <mat-label>Nombre</mat-label>
+      <input placeholder="Nombre" type="text" matInput formControlName="nombre"  >
+      <mat-error *ngIf="f.nombre.hasError('required')">Campo requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field class="elemento">
+      <mat-label>Edad</mat-label>
+      <input placeholder="Edad" type="number" matInput formControlName="edad" >
+      <mat-error *ngIf="f.edad.hasError('required')">Campo requerido</mat-error>
+      <mat-error *ngIf="f.edad.hasError('pattern')">No es valido</mat-error>
+      <mat-error *ngIf="f.edad.hasError('min')">La edad es muy baja</mat-error>
+      <mat-error *ngIf="f.edad.hasError('max')">La edad es muy alta</mat-error>
+    </mat-form-field>
+    <mat-form-field class="elemento">
+      <mat-label>Email</mat-label>
+      <input placeholder="Correo" type="email" matInput formControlName="correo" >
+      <mat-error *ngIf="f.correo.hasError('required')">Campo requerido</mat-error>
+      <mat-error *ngIf="f.correo.hasError('email')">Correo invalido</mat-error>
+    </mat-form-field>
+    <mat-form-field class="elemento">
+      <mat-label>Contraseña</mat-label>
+      <input placeholder="Contraseña" type="password" matInput formControlName="contrasenia"  >
+      <mat-error *ngIf="f.contrasenia.hasError('required')">Campo requerido</mat-error>
+      <mat-error *ngIf="f.contrasenia.hasError('minlength')">Contraseña muy corta</mat-error>
+    </mat-form-field>
+    <input class="btn" type="submit" value="Enviar">
+  </form>
+  <span id="spanRegistro"></span>
+</div>

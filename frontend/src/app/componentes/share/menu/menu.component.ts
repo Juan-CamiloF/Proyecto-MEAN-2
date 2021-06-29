@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 //Servicio del usuario
-import {UsuarioService} from '../../servicios/usuario.service'
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 //Router
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 //Servicio de juego
-import { JuegoService } from '../../servicios/juego.service';
+import { JuegoService } from 'src/app/servicios/juego/juego.service';
 //Swal Alert
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-juego',
@@ -12,19 +12,20 @@ import { JuegoService } from '../../servicios/juego.service';
   styleUrls: ['./juego.component.css'],
 })
 export class JuegoComponent implements OnInit {
+  @ViewChild('puntaje') puntaje!: ElementRef;
   constructor(private juego: JuegoService, private router: Router) {}
   //Inicializar el contador
   contador: number = 0;
   ngOnInit(): void {
     //Apenas se cargue la pagina encontrar el elemento
-    document
-      .getElementById('contenedorJuego')
-      ?.addEventListener('click', () => {
-        //Cada que le haga click aumenta el contador
-        this.contador++;
-        //Mostrar cantidad de clicks
-        document.getElementById('puntaje')!.innerText = `${this.contador}`;
-      });
+    (<HTMLDivElement>(
+      document.getElementById('contenedorJuego')
+    )).addEventListener('click', () => {
+      //Cada que le haga click aumenta el contador
+      this.contador++;
+      //Mostrar cantidad de clicks
+      this.puntaje.nativeElement.innerText = `${this.contador}`;
+    });
   }
   //Iniciar el cronometro
   //Inicializar el click
@@ -70,7 +71,6 @@ export class JuegoComponent implements OnInit {
     this.juego.puntaje(this.puntajeJson).subscribe(
       (res) => {
         this.router.navigate(['/puntajesIndividuales']);
-        document.getElementById('puntaje')!.innerText = `Puntaje Guardado`;
       },
       (err) => {
         console.log(err);

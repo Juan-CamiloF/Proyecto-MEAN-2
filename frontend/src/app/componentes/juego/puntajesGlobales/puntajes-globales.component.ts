@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { JuegoService } from '../../servicios/juego.service';
+import { puntajeGlobal } from 'src/app/modelos/interfaces';
+import { JuegoService } from 'src/app/servicios/juego/juego.service';
 @Component({
   selector: 'app-puntajes-globales',
   templateUrl: './puntajes-globales.component.html',
   styleUrls: ['./puntajes-globales.component.css'],
 })
 export class PuntajesGlobalesComponent implements OnInit {
-  listarAsc: any = [];
-  listarDes:any = [];
+  listarAsc: puntajeGlobal[] = [];
+  listarDes: puntajeGlobal[]= [];
   constructor(private juego: JuegoService) {}
   ngOnInit(): void {
     //Listar de forma ascendente

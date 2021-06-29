@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-//Importar el servicio
-import { UsuarioService } from '../../servicios/usuario.service';
-//Router
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-inicio',
+  templateUrl: './inicio.component.html',
+  styleUrls: ['./inicio.component.css']
 })
-export class LoginComponent implements OnInit {
+export class InicioComponent implements OnInit {
+
   formulario!: FormGroup;
-  enviar = false;
   constructor(
     private usuario: UsuarioService,
     private router: Router,
@@ -29,9 +28,7 @@ export class LoginComponent implements OnInit {
     return this.formulario.controls
   }
   iniciarUsuario() {
-    this.enviar = true;
     if(this.formulario.invalid) return;
-
     this.usuario.iniciar(this.formulario.value).subscribe(
       (res)=>{
         localStorage.setItem('token',res.jwt)
@@ -40,4 +37,5 @@ export class LoginComponent implements OnInit {
       (err)=> document.getElementById('spanLogin')!.innerText=`${err.error}`
     )
   }
+
 }

@@ -1,0 +1,19 @@
+<div class="contenedor">
+    <h2>Iniciar Sesión</h2>
+    <form class="form" [formGroup]="formulario" (ngSubmit)="iniciarUsuario()">
+      <mat-form-field class="elemento">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="correo">
+        <mat-error *ngIf="f.correo.hasError('required')">Campo requerido</mat-error>
+        <mat-error *ngIf="f.correo.hasError('email')"> Correo invalido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="elemento">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="contrasenia">
+        <mat-error *ngIf="f.contrasenia.hasError('required')">Campo requerido</mat-error>
+        <mat-error *ngIf="f.contrasenia.hasError('minlength')">La contraseña debe ser de más de 6 carácteres</mat-error>
+      </mat-form-field>
+      <input class="btn" type="submit" value="Enviar">
+    </form>
+    <span id="spanLogin"></span>
+  </div>
