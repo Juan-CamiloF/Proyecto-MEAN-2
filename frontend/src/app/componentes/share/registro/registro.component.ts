@@ -21,6 +21,7 @@ export class RegistroComponent implements OnInit {
       edad: [
         '',
         [
+          Validators.required,
           Validators.pattern(/^[0-9]\d*$/),
           Validators.max(99),
           Validators.min(10),
